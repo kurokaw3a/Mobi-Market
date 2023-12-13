@@ -1,0 +1,107 @@
+.authButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 80px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 335px;
+    height: 44px;
+}
+.authButtonDisabled{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 80px;
+    background: rgba(192, 192, 192, 1);
+    user-select: none;
+    text-align: center;
+    width: 335px;
+    height: 44px;
+}
+.resetButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 335px;
+    height: 65px;
+}
+
+.actionsButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 260px;
+    height: 44px;
+}
+.deleteButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 280px;
+    height: 44px;
+}
+.deleteButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 280px;
+    height: 44px;
+}
+.announcementButton{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0em;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 80px;
+    background: rgba(84, 88, 234, 1);
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    width: 215px;
+    height: 44px;
+}
