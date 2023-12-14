@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { NavLink } from 'react-router-dom'
 import arrowLeftIcon from '../../../assets/headerIcons/arrowLeft.svg'
 import marketIcon from '../../../assets/headerIcons/marketIcon.svg'
