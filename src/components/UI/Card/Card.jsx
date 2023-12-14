@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from 'react'
 import actionsIcon from '../../../assets/cardIcons/actions.svg'
 import deleteIcon from '../../../assets/cardIcons/deleteIcon.svg'

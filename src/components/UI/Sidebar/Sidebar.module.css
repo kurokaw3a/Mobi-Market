@@ -1,0 +1,89 @@
+.sidebar{
+    width: 540px;
+    height: 100vh;
+    background: white;
+    user-select: none;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 24px 32px 0px 32px;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 12px;
+    width: max-content;
+    margin-left: 10px;
+}
+.profileIcon{
+ pointer-events: none;
+ width: 60px;
+ height: 60px;
+ border-radius: 100px;
+ object-fit: cover;
+ }
+.userName{
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    color:#494949;
+}
+.userNickname{
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.40799999237060547px;
+    text-align: center;
+    color: #494949;
+}
+.navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+.nav{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ border-radius: 14px;
+ padding: 4px 10px 4px 10px;
+ cursor: pointer;
+ transition: 0.3s;
+ &:hover{
+    background: #F7F6F9;
+}
+}
+.navLogout{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ border-radius: 14px;
+ padding: 4px 10px 4px 10px;
+ cursor: pointer;
+ transition: 0.3s;
+ margin-top: 35px;
+ &:hover{
+    background: #F7F6F9;
+}
+}
+.navLeft{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+.navIcon{
+    pointer-events: none;
+}
+.navText{
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+    color: #494949;    
+    text-decoration: none;
+}
