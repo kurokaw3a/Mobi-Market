@@ -1,15 +1,12 @@
-import Card from './components/UI/Card/Card'
+import Sidebar from './components/UI/Sidebar/Sidebar'
 
 const App = () => {
   return (
-    <div>
-      <Card
-        img='https://www.allcarz.ru/wp-content/uploads/2010/08/g-power-bmw-m5-hurricane-rr_02-650x433.jpg'
-        title='BMW M5 E60 G-POWER'
-        price={10000}
-        likes={100}
-      />
-    </div>
+    <Sidebar
+      name='Тимур'
+      nickname='kurokaw3a'
+      avatar='https://lumiere-a.akamaihd.net/v1/images/607598d0230e6a00018e21b2-image_354b1b56.jpeg?region=0,0,1536,864'
+    />
   )
 }
 export default App
