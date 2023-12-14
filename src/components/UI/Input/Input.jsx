@@ -21,6 +21,7 @@ const Input = ({
     <div className={styles.container}>
       {variant !== 'number' && variant !== 'overviewTextArea' && (
         <input
+          style={{ background: 'none' }}
           id='input'
           className={
             (variant === 'auth' && styles.authInput) ||
@@ -39,6 +40,7 @@ const Input = ({
       {variant === 'number' && (
         <div>
           <ReactInputMask
+            style={{ background: 'none' }}
             className={styles.numberInput}
             mask='0(999) 999 999'
             placeholder='0(000) 000 000'
@@ -48,6 +50,7 @@ const Input = ({
       )}
       {variant === 'overviewTextArea' && (
         <textarea
+          style={{ background: 'none' }}
           className={styles.overviewTextarea}
           placeholder={placeholder}
           value={value}
