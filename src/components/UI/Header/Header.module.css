@@ -1,0 +1,78 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.marketIcon{
+    width: 196px;
+    height: 46px;
+}
+.rightBlock{
+ display: flex;
+ align-items: center;
+ gap: 20px;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.profileIcon{
+    width: 60px;
+    height: 60px;
+}
+.userName{
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.40799999237060547px;
+    color: rgba(73, 73, 73, 1);
+    text-align: end;
+}
+.userNickname{
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.40799999237060547px;
+    color: rgba(73, 73, 73, 1);
+}
+.navigation{
+display: flex;
+align-items: center;
+gap: 164px;
+width: 636px;
+}
+.navigationLeftBlock{
+display: flex;
+align-items: center;
+gap: 5px;
+}
+.navigationBackIcon{
+    width: 44px;
+    height: 28px;
+    padding: 2px 10px 2px 10px;
+    border-radius: 50px;
+    background: rgba(192, 192, 192, 0.2);
+    cursor: pointer;
+    user-select: none;    
+}
+.navigationText{
+    font-family: Inter ,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+}
+.pathname{
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(73, 73, 73, 1);
+}
