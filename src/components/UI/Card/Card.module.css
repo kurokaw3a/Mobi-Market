@@ -1,0 +1,124 @@
+.card{
+    width: 154px;
+    padding: 6px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #4949491A;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: white;
+}
+.image{
+    width: 142px;
+    height: 85px;
+    border-radius: 6px;
+}
+.title{
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    user-select: none;
+}
+.price{
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5D5FEF;
+    user-select: none;
+}
+.actionsBlock{
+  display: flex;
+  align-items: center;
+  gap: 68px;
+}
+.likeBlock{
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+.likeIcon{
+    user-select: none;
+}
+.likeCount{
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #C1C1C1;
+    user-select: none;
+}
+.actionsIcon{
+ cursor: pointer;
+ transition: 0.3s;
+ user-select: none;
+ border-radius: 100px;
+ &:hover{
+    background: rgba(94, 94, 94, 0.107);
+}
+}
+
+.backdrop{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.actions{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 150px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    opacity: 1;
+    animation: show 0.2s ease-in-out;
+    padding: 5px;
+}
+@keyframes show {
+    from{
+     opacity: 0;
+    margin-top: 155px;
+}
+to{
+    opacity: 1;
+    margin-top: 150px;
+    }
+}
+.action{
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    user-select: none;
+    &:hover{
+        background: rgba(206, 206, 206, 0.269);
+    }
+}
+.actionLine{
+    width: 116px;
+    height: 1px;
+    border: none;
+    background: #F7F6F9;
+}
+.actionText{
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #494949;
+}
+.actionIcon{
+ pointer-events: none;
+}

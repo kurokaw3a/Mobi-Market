@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 body{
- background: #F0F0F0
+background-color: #F0F0F0;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jua&display=swap');
