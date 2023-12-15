@@ -1,0 +1,62 @@
+.footer{
+ display: flex;
+ justify-content: center;
+}
+.nav{
+ display: flex;
+ align-items: center;
+ gap: 12px;
+}
+.pageNumberActive{
+    width: 32px;
+    height: 32px;
+    padding: 8px 10px 10px 10px;
+    border-radius: 8px;    
+    background: #5458EA;
+    color: white;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+.pageNumberDisabled{
+    width: 32px;
+    height: 32px;
+    padding: 8px 10px 10px 10px;
+    border-radius: 8px;    
+    background: #C0C0C0;
+    color: #494949;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+.navTools{
+ cursor: pointer;
+ width: 32px;
+ height: 32px;
+}
+.arrowIcon{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;    
+    border: 1px solid #5458EA;
+    user-select: none;
+    pointer-events: none;
+    cursor: pointer;
+}
+.arrowIconBack{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;    
+    border: 1px solid #5458EA;
+    user-select: none;
+    pointer-events: none;
+    transform: rotate(180deg);
+}

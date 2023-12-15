@@ -29,7 +29,7 @@ const Card = ({ img, title, price, likes, id }) => {
       </div>
       {show && (
         <>
-          <div onClick={showActions} className={styles.backdrop} />
+          <div onClickCapture={showActions} className={styles.backdrop} />
           <div className={styles.actions}>
             <div className={styles.action}>
               <img className={styles.actionIcon} src={editIcon} alt='error' />
