@@ -19,24 +19,27 @@ const Input = ({
   }
   return (
     <div className={styles.container}>
-      {variant !== 'number' && variant !== 'overviewTextArea' && (
-        <input
-          style={{ background: 'none' }}
-          id='input'
-          className={
-            (variant === 'auth' && styles.authInput) ||
-            (variant === 'authError' && styles.authInputError) ||
-            (variant === 'verification' && styles.verificationInput) ||
-            (variant === 'overview' && styles.overviewInput)
-          }
-          required
-          type={show ? 'text' : type}
-          placeholder={placeholder || (variant === 'verification' && '0000')}
-          maxLength={maxLength || (type === 'password' && 20)}
-          onChange={onChange}
-          value={value}
-        />
-      )}
+      {variant !== 'number' &&
+        variant !== 'overviewTextArea' &&
+        variant !== 'date' && (
+          <input
+            style={{ background: 'none' }}
+            id='input'
+            className={
+              (variant === 'auth' && styles.authInput) ||
+              (variant === 'authError' && styles.authInputError) ||
+              (variant === 'verification' && styles.verificationInput) ||
+              (variant === 'overview' && styles.overviewInput) ||
+              (variant === 'profile' && styles.profileInput)
+            }
+            required
+            type={show ? 'text' : type}
+            placeholder={placeholder || (variant === 'verification' && '0000')}
+            maxLength={maxLength || (type === 'password' && 20)}
+            onChange={onChange}
+            value={value}
+          />
+        )}
       {variant === 'number' && (
         <div>
           <ReactInputMask
@@ -45,6 +48,17 @@ const Input = ({
             mask='0(999) 999 999'
             placeholder='0(000) 000 000'
             maskChar=' '
+          />
+        </div>
+      )}
+      {variant === 'date' && (
+        <div>
+          <ReactInputMask
+            style={{ background: 'none' }}
+            className={styles.profileInput}
+            mask='9999.99.99'
+            placeholder='гггг-мм-дд'
+            maskChar=''
           />
         </div>
       )}

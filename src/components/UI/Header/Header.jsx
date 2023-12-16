@@ -5,7 +5,7 @@ import profileIcon from '../../../assets/headerIcons/profileIcon.svg'
 import Button from '../Button/Button'
 import styles from './Header.module.css'
 
-const Header = ({ variant }) => {
+const Header = ({ variant, avatar }) => {
   return variant !== 'navigation' ? (
     <header>
       <nav className={styles.nav}>
@@ -17,7 +17,11 @@ const Header = ({ variant }) => {
               <h2 className={styles.userName}>Name</h2>
               <h3 className={styles.userNickname}>Nickname</h3>
             </div>
-            <img className={styles.profileIcon} src={profileIcon} alt='error' />
+            <img
+              className={styles.profileIcon}
+              src={profileIcon || avatar}
+              alt='error'
+            />
           </div>
         </div>
       </nav>

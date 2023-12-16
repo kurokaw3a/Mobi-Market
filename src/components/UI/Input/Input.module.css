@@ -111,6 +111,24 @@ input:focus ~ label, input:valid ~ label{
         color: rgba(192, 192, 192, 1);
     }
 }
+.profileInput{
+    width: 620px;
+    border: none;
+    outline: none;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+    padding: 4px 0px 4px 0px;
+    user-select: none;
+    cursor: text;
+    color: #000000;
+    &::placeholder{
+     color: #C0C0C0;
+    }
+
+}
 .overviewTextarea{
     width: 532px;
     height: 40px;
