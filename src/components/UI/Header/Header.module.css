@@ -41,13 +41,13 @@
 .navigation{
 display: flex;
 align-items: center;
-gap: 164px;
+gap: 160px;
 width: 636px;
 }
 .navigationLeftBlock{
-display: flex;
-align-items: center;
-gap: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .navigationBackIcon{
     width: 44px;

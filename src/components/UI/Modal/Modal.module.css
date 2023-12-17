@@ -18,10 +18,11 @@
     padding: 44px;
     border-radius: 40px;
     background: #FFFFFF;
+    animation: show 0.5s ease;
 }
 .resetModal{
     position: fixed;
-    top: 15vh;
+    top: 10vh;
     margin-left: 50%;    
     transform: translate(-50%, 0%);
     z-index: 2;
@@ -30,6 +31,7 @@
     padding: 44px 16px 44px 16px;
     border-radius: 40px;
     background: #FFFFFF;
+    animation: show 0.5s ease;
 }
 .productModal{
     position: fixed;
@@ -42,4 +44,16 @@
     padding: 16px 16px 44px 16px;
     border-radius: 30px;
     background: #FFFFFF;
+    animation: show 0.5s ease;
+}
+
+@keyframes show {
+    from{
+        top: 10vh;
+        opacity: 0;
+    }
+    to{
+        top: 15vh;
+        opacity: 1;
+    }    
 }

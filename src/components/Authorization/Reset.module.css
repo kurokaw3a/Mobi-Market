@@ -1,0 +1,189 @@
+.reset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    user-select: none;
+}
+.title{
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;  
+    user-select: none;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+.img{
+    pointer-events: none;
+    user-select: none; 
+}
+.formTitle{
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.formText{
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #C0C0C0;
+    width: 335px;
+    margin-bottom: 10px;
+}
+.phoneInput{
+    margin-left: 160px;
+}
+.phoneSubmitButton{
+ margin-top: 24px;
+}
+.resetText{
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.userIcon{
+ user-select: none;
+ pointer-events: none;
+}
+.codeText{
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+    margin-bottom: 15px;    
+}
+.codeInput{
+margin-left: 18px;
+margin-bottom: 5px;
+}
+.repeat{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 5px;
+}
+.repeatText{
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #C0C0C0;    
+}
+.pending{
+ display: flex;
+ align-items: center;
+ gap: 6px;
+}
+.loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #DFE0E5;
+    border-bottom-color: #686868;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+.seconds{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    color: #C0C0C0;    
+}
+.sendCodeAgain{
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+    color: #5458EA;    
+    cursor: pointer;
+}
+.titleBlock{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 87px;
+    width: 565px;
+    margin-right: 140px;
+}
+.newPassword{
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.showIcon{
+ padding: 2px 10px 2px 10px;
+ background: #C0C0C033;
+ border-radius: 50px;
+}
+.newPasswordText{
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.rules{
+    width: 300px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #C0C0C0;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 20px;
+}
+.errorText{
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.23999999463558197px;
+    text-align: center;
+    color: #F34545;
+}
+.nextButton{
+    margin-top: 50px;
+}

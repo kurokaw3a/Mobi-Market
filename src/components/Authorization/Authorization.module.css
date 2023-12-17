@@ -1,0 +1,86 @@
+.auth{
+    display: flex;
+    align-items: center;
+    gap: 192px;
+}
+.regAuth{
+    display: flex;
+    gap: 42px;
+}
+.nav{
+ margin-top: 29px;
+}
+.marketCover{
+    width: 720px;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blur{
+    width: 720px;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+}
+.marketLogo{
+    z-index: 1;
+}
+.marketIcon{
+    user-select: none;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+}
+.marketTitle{
+    font-family: Nunito, sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    user-select: none ;
+}
+.form{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 183px;
+}
+.block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 47px;
+}
+.passwordInput{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.recoveryText{
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5458EA;
+    user-select: none;
+    cursor: pointer;
+}
+.registerText{
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5458EA;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+}
