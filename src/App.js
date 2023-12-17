@@ -1,6 +1,4 @@
-import Authorization from './components/Authorization/Authorization'
-
 const App = () => {
-  return <Authorization />
+  return <div />
 }
 export default App

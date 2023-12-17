@@ -84,3 +84,76 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.formPassword{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+    margin-top: 100px;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    user-select: none;
+}
+.titleBlock{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 87px;
+    width: 565px;
+    margin-right: 140px;
+}
+.newPassword{
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.showIcon{
+ padding: 2px 10px 2px 10px;
+ background: #C0C0C033;
+ border-radius: 50px;
+}
+.newPasswordText{
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #494949;
+}
+.rules{
+    width: 300px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #C0C0C0;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 20px;
+}
+.errorText{
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.23999999463558197px;
+    text-align: center;
+    color: #F34545;
+}
+.nextButton{
+    margin-top: 50px;
+}
