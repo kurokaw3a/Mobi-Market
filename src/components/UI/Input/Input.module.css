@@ -31,16 +31,19 @@
         color: rgba(243, 69, 69, 1);
     }
 }
+.inputBlock{
+    display: flex;
+    flex-direction: column;
+}
 .label{
     font-family: Inter, sans-serif;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0em;
-    text-align: left;
     color: rgba(192, 192, 192, 1);
-    position: absolute;
-    left: 0;
     transition: 0.3s;
+    position: absolute;
+    pointer-events: none;
 }
 input:focus ~ label, input:valid ~ label{
     transform: translateY(-20px);
@@ -49,45 +52,35 @@ input:focus ~ label, input:valid ~ label{
 .showPasswordIcon{
     width: 20px;
     position: absolute;
-    left: 0;
     margin-left: 315px;
     cursor: pointer;
     user-select: none;
-}
-.number{
-    font-family: Inter, sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0.36000001430511475px;
-    color: rgba(73, 73, 73, 1);
-    position: absolute;
-    pointer-events: none;
 }
 .numberInput{
     font-family: Inter, sans-serif;
     font-size: 28px;
     font-weight: 700;
-    line-height: 34px;
     letter-spacing: 0.36000001430511475px;
     color: rgba(73, 73, 73, 1);
     border: none;
     outline: none;
+    user-select: none;
     &::placeholder{
         color: rgba(192, 192, 192, 1);
     } 
 }
 
 .verificationInput{
+    width: 120px;
     font-family: Inter, sans-serif;
     font-size: 28px;
     font-weight: 700;
-    letter-spacing: 0.36000001430511475px;
     color: rgba(73, 73, 73, 1);
     border: none;
     outline: none;
-    letter-spacing: 8px;
+    letter-spacing: 10px;
     &::placeholder{
-        letter-spacing: 8px;
+        letter-spacing: 10px;
         color: rgba(192, 192, 192, 1);
     }
 }

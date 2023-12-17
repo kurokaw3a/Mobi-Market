@@ -18,28 +18,49 @@ const Input = ({
     setShow((prev) => !prev)
   }
   return (
-    <div className={styles.container}>
-      {variant !== 'number' &&
-        variant !== 'overviewTextArea' &&
-        variant !== 'date' && (
-          <input
-            style={{ background: 'none' }}
-            id='input'
-            className={
-              (variant === 'auth' && styles.authInput) ||
-              (variant === 'authError' && styles.authInputError) ||
-              (variant === 'verification' && styles.verificationInput) ||
-              (variant === 'overview' && styles.overviewInput) ||
-              (variant === 'profile' && styles.profileInput)
-            }
-            required
-            type={show ? 'text' : type}
-            placeholder={placeholder || (variant === 'verification' && '0000')}
-            maxLength={maxLength || (type === 'password' && 20)}
-            onChange={onChange}
-            value={value}
-          />
+    <div>
+      {type === 'password' && (
+        <img
+          onClick={showPass}
+          className={styles.showPasswordIcon}
+          src={show ? hideIcon : showIcon}
+          alt='error'
+        />
+      )}
+      <div className={styles.inputBlock}>
+        {variant !== 'number' &&
+          variant !== 'overviewTextArea' &&
+          variant !== 'date' && (
+            <input
+              style={{ background: 'none' }}
+              name='input'
+              className={
+                (variant === 'auth' && styles.authInput) ||
+                (variant === 'authError' && styles.authInputError) ||
+                (variant === 'verification' && styles.verificationInput) ||
+                (variant === 'overview' && styles.overviewInput) ||
+                (variant === 'profile' && styles.profileInput)
+              }
+              required
+              type={show ? 'text' : type}
+              placeholder={
+                placeholder || (variant === 'verification' && '0000')
+              }
+              maxLength={
+                maxLength ||
+                (type === 'password' && 20) ||
+                (variant === 'verification' && 4)
+              }
+              onChange={onChange}
+              value={value}
+            />
+          )}
+        {label && (
+          <label className={styles.label} htmlFor='input'>
+            {label}
+          </label>
         )}
+      </div>
       {variant === 'number' && (
         <div>
           <ReactInputMask
@@ -48,6 +69,8 @@ const Input = ({
             mask='0(999) 999 999'
             placeholder='0(000) 000 000'
             maskChar=' '
+            value={value}
+            onChange={onChange}
           />
         </div>
       )}
@@ -59,6 +82,8 @@ const Input = ({
             mask='9999.99.99'
             placeholder='гггг-мм-дд'
             maskChar=''
+            value={value}
+            onChange={onChange}
           />
         </div>
       )}
@@ -70,19 +95,6 @@ const Input = ({
           value={value}
           onChange={onChange}
         />
-      )}
-      {type === 'password' && (
-        <img
-          onClick={showPass}
-          className={styles.showPasswordIcon}
-          src={show ? hideIcon : showIcon}
-          alt='error'
-        />
-      )}
-      {label && (
-        <label className={styles.label} htmlFor='input'>
-          {label}
-        </label>
       )}
     </div>
   )

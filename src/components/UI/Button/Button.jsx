@@ -10,6 +10,7 @@ const Button = ({ children, disabled, variant, onClick }) => {
           (disabled && variant === 'auth' && 'rgba(192, 192, 192, 1)') ||
           (disabled && 'rgba(247, 247, 248, 1)'),
         cursor: disabled && 'default',
+        color: disabled && variant === 'reset' && '#9CA4AB',
       }}
       className={
         (variant === 'auth' && styles.authButton) ||
