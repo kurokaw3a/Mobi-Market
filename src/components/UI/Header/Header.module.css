@@ -39,10 +39,11 @@
     color: rgba(73, 73, 73, 1);
 }
 .navigation{
-display: flex;
-align-items: center;
-gap: 160px;
-width: 636px;
+    display: flex;
+    align-items: center;
+    gap: 160px;
+    width: 636px;
+    user-select: none;
 }
 .navigationLeftBlock{
     display: flex;
