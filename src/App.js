@@ -1,4 +1,6 @@
+import Profile from './components/Profile/Profile'
+
 const App = () => {
-  return <div />
+  return <Profile />
 }
 export default App

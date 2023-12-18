@@ -12,6 +12,7 @@ const Input = ({
   maxLength,
   value,
   onChange,
+  disabled,
 }) => {
   const [show, setShow] = useState(false)
   const showPass = () => {
@@ -29,6 +30,7 @@ const Input = ({
       )}
       <div className={styles.inputBlock}>
         {variant !== 'number' &&
+          variant !== 'numberProfile' &&
           variant !== 'overviewTextArea' &&
           variant !== 'date' && (
             <input
@@ -71,6 +73,20 @@ const Input = ({
             maskChar=' '
             value={value}
             onChange={onChange}
+          />
+        </div>
+      )}
+      {variant === 'numberProfile' && (
+        <div>
+          <ReactInputMask
+            style={{ background: 'none' }}
+            className={styles.numberInputProfile}
+            mask='0(999) 999 999'
+            placeholder='0(000) 000 000'
+            maskChar=' '
+            value={value}
+            onChange={onChange}
+            disabled={disabled}
           />
         </div>
       )}

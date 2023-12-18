@@ -69,6 +69,20 @@ input:focus ~ label, input:valid ~ label{
         color: rgba(192, 192, 192, 1);
     } 
 }
+.numberInputProfile{
+    width: 119px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.36000001430511475px;
+    color: rgba(73, 73, 73, 1);
+    border: none;
+    outline: none;
+    user-select: none;
+    &::placeholder{
+        color: rgba(192, 192, 192, 1);
+    } 
+}
 
 .verificationInput{
     width: 120px;
