@@ -1,0 +1,59 @@
+.profile{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.tools{
+    margin-top: 20px;
+    background: #FFFFFF;
+    padding: 6px 16px 6px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+    user-select: none;
+}
+.input{
+    border-bottom: 1px solid #F7F6F9;
+}
+.userContacts{
+    width: 652px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    padding: 6px 16px 6px 16px;
+    margin-bottom: 32px;
+}
+.number{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F7F6F9;
+    margin-bottom: 6px;
+}
+.addNumber{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+    color: #5458EA;
+    margin-bottom: 6px;  
+    user-select: none;
+    cursor: pointer;  
+}
+.email{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.40799999237060547px;
+    text-align: left;
+
+}
