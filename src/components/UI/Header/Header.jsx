@@ -27,17 +27,17 @@ const Header = ({ variant, avatar, location }) => {
       </nav>
     </header>
   ) : (
-    <div className={styles.navigation}>
-      <div className={styles.navigationLeftBlock}>
+    <header className={styles.navigation}>
+      <nav className={styles.navigationLeftBlock}>
         <NavLink to={-1}>
           <div className={styles.navigationBackIcon}>
             <img src={arrowLeftIcon} alt='error' />
           </div>
         </NavLink>
         <p className={styles.navigationText}>Назад</p>
-      </div>
+      </nav>
       <h2 className={styles.pathname}>{location}</h2>
-    </div>
+    </header>
   )
 }
 

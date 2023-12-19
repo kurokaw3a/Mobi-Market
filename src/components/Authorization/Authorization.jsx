@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import lockIcon from '../../assets/authIcons/lockIcon.svg'
 import marketCover from '../../assets/marketCover.svg'
 import marketIcon from '../../assets/marketIcon.svg'
+import { postLoginUser } from '../../services/Authorization/AuthActions'
 import Button from '../UI/Button/Button'
 import Header from '../UI/Header/Header'
 import Input from '../UI/Input/Input'
@@ -11,7 +13,8 @@ import styles from './Authorization.module.css'
 import Reset from './Reset'
 
 const Authorization = ({ variant }) => {
-  const [verification, setVerification] = useState(false)
+  const dispatch = useDispatch()
+  const state = useSelector((state) => state.Auth)
   const [input, setInput] = useState({
     userName: '',
     userPassword: '',
@@ -19,15 +22,12 @@ const Authorization = ({ variant }) => {
   })
   const nameHandler = (event) => {
     setInput({ ...input, userName: event.target.value })
-    setVerification(false)
   }
   const passwordHandler = (event) => {
     setInput({ ...input, userPassword: event.target.value })
-    setVerification(false)
   }
   const emailHandler = (event) => {
     setInput({ ...input, userEmail: event.target.value })
-    setVerification(false)
   }
 
   const validName =
@@ -38,35 +38,24 @@ const Authorization = ({ variant }) => {
   const passValid = pasValidopt.test(input.userPassword.trim())
   const validPassword = input.userPassword.trim().length > 6 && passValid
   const validation = validName && validPassword
-  const emailValid = /^[A-z0-9._-]+@[A-z0-9.-]+\.[A-z]{2,4}$/.test(
-    input.userEmail.trim()
-  )
+  const emailValid = /[A-z][0-9]/.test(input.userEmail.trim())
   const validationEmail = validName && emailValid
   const logIn = (event) => {
     event.preventDefault()
-    if (
-      input.userName === 'Kurokaw3a' &&
-      input.userPassword === 'timatikamal7'
-    ) {
-      setVerification(true)
-    }
+    dispatch(
+      postLoginUser({ username: input.userName, password: input.userPassword })
+    )
   }
+
   const [regsitrationStep, setRegistrationStep] = useState(0)
   const register = (event) => {
     event.preventDefault()
-    if (
-      input.userName === 'Kurokaw3a' &&
-      input.userEmail === 'kamaldinov321@gmail.com'
-    ) {
-      setVerification(true)
-    } else {
-      setInput({
-        userName: '',
-        userPassword: '',
-        userEmail: '',
-      })
-      setRegistrationStep(1)
-    }
+    setInput({
+      userName: '',
+      userPassword: '',
+      userEmail: '',
+    })
+    setRegistrationStep(1)
   }
 
   const [showResetModal, setShowResetModal] = useState(false)
@@ -152,10 +141,9 @@ const Authorization = ({ variant }) => {
             ) : (
               <Input
                 onChange={emailHandler}
-                value={input.userEmail}
                 variant='auth'
                 label='Почта'
-                type='email'
+                type='text'
               />
             )}
             {variant !== 'register' ? (
@@ -216,7 +204,7 @@ const Authorization = ({ variant }) => {
         </div>
       )}
       {showResetModal && <Reset onClose={hideResetModalHandler} />}
-      {verification && (
+      {state.loginStatus === 'error' && (
         <Snackbar variant='error'>
           {variant !== 'register'
             ? 'Неверный логин или пароль'

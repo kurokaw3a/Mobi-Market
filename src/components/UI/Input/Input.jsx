@@ -95,7 +95,7 @@ const Input = ({
           <ReactInputMask
             style={{ background: 'none' }}
             className={styles.profileInput}
-            mask='9999.99.99'
+            mask='9999-99-99'
             placeholder='гггг-мм-дд'
             maskChar=''
             value={value}

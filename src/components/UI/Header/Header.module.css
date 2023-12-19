@@ -42,7 +42,7 @@
     display: flex;
     align-items: center;
     gap: 160px;
-    width: 636px;
+    width: 600px;
     user-select: none;
 }
 .navigationLeftBlock{
