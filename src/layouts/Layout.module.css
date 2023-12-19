@@ -1,0 +1,44 @@
+.container{
+ display: flex;
+ align-items: start;
+ gap: 132px;
+}
+.left{
+ margin-top: 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 50px;
+}
+
+.logout{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 14px;
+ user-select: none;
+ }
+.logoutIcon{
+ pointer-events: none;
+}
+.logoutText{
+    width: 303px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #292929;
+    margin-bottom: 10px;
+}
+.cancell{
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #494949;
+}

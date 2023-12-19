@@ -1,6 +1,6 @@
-import Profile from './components/Profile/Profile'
+import Root from './routes/Root'
 
 const App = () => {
-  return <Profile />
+  return <Root />
 }
 export default App

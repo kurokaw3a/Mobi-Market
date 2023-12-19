@@ -5,11 +5,13 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
+    "@reduxjs/toolkit": "^2.0.1",
     "cra-template": "1.2.0",
     "node-modules": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1"
   },

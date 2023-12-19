@@ -6,7 +6,7 @@ import logoutIcon from '../../../assets/sidebarIcons/logoutIcon.svg'
 import productsIcon from '../../../assets/sidebarIcons/productsIcon.svg'
 import styles from './Sidebar.module.css'
 
-const Sidebar = ({ logout, name, nickname, avatar }) => {
+const Sidebar = ({ logout, name, email, avatar }) => {
   const navigate = useNavigate()
   const navToProfile = () => {
     navigate('/profile')
@@ -22,7 +22,7 @@ const Sidebar = ({ logout, name, nickname, avatar }) => {
           />
           <div>
             <h2 className={styles.userName}>{name}</h2>
-            <h3 className={styles.userNickname}>{nickname}</h3>
+            <h3 className={styles.userNickname}>{email}</h3>
           </div>
         </div>
         <div className={styles.navigation}>

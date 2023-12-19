@@ -9,7 +9,7 @@
 }
 .modalContent{
     position: fixed;
-    top: 30vh;
+    top: 20vh;
     margin-left: 50%;    
     transform: translate(-50%, 0%);
     z-index: 2;
@@ -18,7 +18,7 @@
     padding: 44px;
     border-radius: 40px;
     background: #FFFFFF;
-    animation: show 0.5s ease;
+    animation: show1 0.5s ease;
 }
 .resetModal{
     position: fixed;
@@ -54,6 +54,16 @@
     }
     to{
         top: 15vh;
+        opacity: 1;
+    }    
+}
+@keyframes show1 {
+    from{
+        top: 15vh;
+        opacity: 0;
+    }
+    to{
+        top: 20vh;
         opacity: 1;
     }    
 }
