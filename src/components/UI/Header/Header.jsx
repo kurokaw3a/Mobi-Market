@@ -17,11 +17,13 @@ const Header = ({ variant, avatar, location }) => {
               <h2 className={styles.userName}>Name</h2>
               <h3 className={styles.userNickname}>Nickname</h3>
             </div>
-            <img
-              className={styles.profileIcon}
-              src={profileIcon || avatar}
-              alt='error'
-            />
+            <NavLink to='/profile'>
+              <img
+                className={styles.profileIcon}
+                src={profileIcon || avatar}
+                alt='error'
+              />
+            </NavLink>
           </div>
         </div>
       </nav>

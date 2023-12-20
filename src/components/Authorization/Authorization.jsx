@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import lockIcon from '../../assets/authIcons/lockIcon.svg'
 import marketCover from '../../assets/marketCover.svg'
 import marketIcon from '../../assets/marketIcon.svg'
-import { postLoginUser } from '../../services/Authorization/AuthActions'
+import {
+  postCheckUser,
+  postLoginUser,
+  postRegisterUser,
+} from '../../services/Authorization/AuthActions'
+import { AuthSlice } from '../../services/Authorization/AuthSlice'
 import Button from '../UI/Button/Button'
 import Header from '../UI/Header/Header'
 import Input from '../UI/Input/Input'
@@ -22,23 +27,27 @@ const Authorization = ({ variant }) => {
   })
   const nameHandler = (event) => {
     setInput({ ...input, userName: event.target.value })
+    dispatch(AuthSlice.actions.reset())
   }
   const passwordHandler = (event) => {
     setInput({ ...input, userPassword: event.target.value })
   }
   const emailHandler = (event) => {
     setInput({ ...input, userEmail: event.target.value })
+    dispatch(AuthSlice.actions.reset())
   }
 
   const validName =
     input.userName.slice(0, 1) ===
       input.userName.slice(0, 1).toLocaleUpperCase() &&
-    input.userName.trim().length > 5
+    input.userName.trim().length >= 3
   const pasValidopt = /[a-z][0-9]/
   const passValid = pasValidopt.test(input.userPassword.trim())
   const validPassword = input.userPassword.trim().length > 6 && passValid
   const validation = validName && validPassword
-  const emailValid = /[A-z][0-9]/.test(input.userEmail.trim())
+  const emailValid = /^[A-z0-9._-]+@[A-z0-9.-]+\.[A-z]{2,4}$/.test(
+    input.userEmail.trim()
+  )
   const validationEmail = validName && emailValid
   const logIn = (event) => {
     event.preventDefault()
@@ -47,15 +56,11 @@ const Authorization = ({ variant }) => {
     )
   }
 
-  const [regsitrationStep, setRegistrationStep] = useState(0)
   const register = (event) => {
     event.preventDefault()
-    setInput({
-      userName: '',
-      userPassword: '',
-      userEmail: '',
-    })
-    setRegistrationStep(1)
+    dispatch(
+      postCheckUser({ username: input.userName, email: input.userEmail })
+    )
   }
 
   const [showResetModal, setShowResetModal] = useState(false)
@@ -85,13 +90,30 @@ const Authorization = ({ variant }) => {
     pasValidopt.test(passwords.first.trim()) &&
     pasValidopt.test(passwords.second.trim())
   const validReset = validPasswords && validPasswordReg
+  const navigate = useNavigate()
   const endRegistration = (event) => {
     event.preventDefault()
-    setRegistrationStep(0)
+    dispatch(AuthSlice.actions.reset())
     setPasswords({
       first: '',
       second: '',
     })
+    setInput({
+      userName: '',
+      userPassword: '',
+      userEmail: '',
+    })
+    dispatch(
+      postRegisterUser({
+        username: input.userName,
+        email: input.userEmail,
+        password: passwords.first,
+        confirm_password: passwords.second,
+      })
+    )
+    if (state.checkStatus === 'success') {
+      navigate('/')
+    }
   }
   return (
     <div className={variant === 'register' ? styles.regAuth : styles.auth}>
@@ -105,7 +127,7 @@ const Authorization = ({ variant }) => {
         </div>
         <div className={styles.blur} />
       </div>
-      {regsitrationStep === 0 ? (
+      {state.check === 0 ? (
         <form
           onSubmit={variant !== 'register' ? logIn : register}
           className={styles.form}
@@ -119,7 +141,7 @@ const Authorization = ({ variant }) => {
             <Input
               onChange={nameHandler}
               value={input.userName}
-              variant='auth'
+              variant={state.checkStatus !== 'error' ? 'auth' : 'authError'}
               label='Имя пользователя'
             />
             {variant !== 'register' ? (
@@ -140,8 +162,9 @@ const Authorization = ({ variant }) => {
               </div>
             ) : (
               <Input
+                variant={state.checkStatus !== 'error' ? 'auth' : 'authError'}
                 onChange={emailHandler}
-                variant='auth'
+                value={input.userEmail}
                 label='Почта'
                 type='text'
               />
@@ -205,11 +228,15 @@ const Authorization = ({ variant }) => {
       )}
       {showResetModal && <Reset onClose={hideResetModalHandler} />}
       {state.loginStatus === 'error' && (
+        <Snackbar variant='error'>Неверный логин или пароль</Snackbar>
+      )}
+      {state.checkStatus === 'error' && (
         <Snackbar variant='error'>
-          {variant !== 'register'
-            ? 'Неверный логин или пароль'
-            : 'Данный пользователь уже зарегистрирован'}
+          Данный пользователь уже зарегистрирован
         </Snackbar>
+      )}
+      {state.changeStatus === 'success' && (
+        <Snackbar variant='success'>Пароль сменён успешно!</Snackbar>
       )}
     </div>
   )

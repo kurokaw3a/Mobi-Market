@@ -1,0 +1,13 @@
+.container{
+ margin: 24px 42px 24px 42px;
+ display: flex;
+ flex-direction: column;
+ gap: 44px;
+}
+.main{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+ gap: 17.7px;
+}

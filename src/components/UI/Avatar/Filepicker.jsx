@@ -10,6 +10,9 @@ const Filepicker = ({ variant, file, setFile, onDelete }) => {
   const selectFile = (event) => {
     const fileUrl = URL.createObjectURL(event.target.files[0])
     setFile(fileUrl)
+    if (variant === 'avatar') {
+      localStorage.setItem('photo', fileUrl)
+    }
   }
 
   return (
