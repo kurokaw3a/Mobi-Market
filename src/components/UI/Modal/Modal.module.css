@@ -49,11 +49,11 @@
 
 @keyframes show {
     from{
-        top: 10vh;
+        top: 5vh;
         opacity: 0;
     }
     to{
-        top: 15vh;
+        top: 10vh;
         opacity: 1;
     }    
 }
