@@ -9,6 +9,7 @@ import Sidebar from '../components/UI/Sidebar/Sidebar'
 import styles from './Layout.module.css'
 
 const Layout = () => {
+  const { login } = useSelector((state) => state.Auth)
   const location = useLocation().pathname.slice(1)
   const [logoutModal, setLogoutModal] = useState(false)
   const showLogoutModal = () => {
@@ -23,10 +24,13 @@ const Layout = () => {
     navigate('/')
     window.location.reload()
   }
-  const { username, email } = useSelector((state) => state.Auth.login)
   return (
     <div className={styles.container}>
-      <Sidebar logout={showLogoutModal} name={username} email={email} />
+      <Sidebar
+        logout={showLogoutModal}
+        name={login?.username}
+        email={login?.email}
+      />
       <div className={styles.left}>
         <Header
           variant='navigation'

@@ -24,12 +24,12 @@ const ModalRoot = document.getElementById('modal')
 
 export const Modal = ({ children, variant, onClose }) => {
   return (
-    <div>
+    <>
       {createPortal(<Backdrop onClose={onClose} />, BackdropRoot)}
       {createPortal(
         <ModalContent variant={variant}>{children}</ModalContent>,
         ModalRoot
       )}
-    </div>
+    </>
   )
 }

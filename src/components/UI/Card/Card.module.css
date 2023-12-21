@@ -12,6 +12,8 @@
     width: 148px;
     height: 85px;
     border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
 }
 .title{
     font-family: Inter, sans-serif;
@@ -42,6 +44,7 @@
 }
 .likeIcon{
     user-select: none;
+    cursor: pointer;
 }
 .likeCount{
     font-family: Inter, sans-serif;

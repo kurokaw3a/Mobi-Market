@@ -5,7 +5,7 @@ import profileIcon from '../../../assets/headerIcons/profileIcon.svg'
 import Button from '../Button/Button'
 import styles from './Header.module.css'
 
-const Header = ({ variant, avatar, location }) => {
+const Header = ({ variant, avatar, location, username, email }) => {
   return variant !== 'navigation' ? (
     <header>
       <nav className={styles.nav}>
@@ -14,8 +14,8 @@ const Header = ({ variant, avatar, location }) => {
           <Button variant='announcement'>Подать объявление</Button>
           <div className={styles.profile}>
             <div>
-              <h2 className={styles.userName}>Name</h2>
-              <h3 className={styles.userNickname}>Nickname</h3>
+              <h2 className={styles.userName}>{username}</h2>
+              <h3 className={styles.userNickname}>{email}</h3>
             </div>
             <NavLink to='/profile'>
               <img

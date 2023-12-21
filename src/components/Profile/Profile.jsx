@@ -17,12 +17,12 @@ import styles from './Profile.module.css'
 
 const Profile = () => {
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getUserProfile())
-  }, [])
   const { profile, profileStatus, phoneVerify } = useSelector(
     (state) => state.Auth
   )
+  useEffect(() => {
+    dispatch(getUserProfile())
+  }, [])
   const [file, setFile] = useState(null)
   const [showNumberModal, setShowModal] = useState(false)
   const showNumberModalHandler = () => {
