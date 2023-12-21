@@ -3,29 +3,53 @@ import actionsIcon from '../../../assets/cardIcons/actions.svg'
 import deleteIcon from '../../../assets/cardIcons/deleteIcon.svg'
 import editIcon from '../../../assets/cardIcons/editIcon.svg'
 import likeIcon from '../../../assets/cardIcons/heart.svg'
+import likeIconGray from '../../../assets/cardIcons/heartGray.svg'
 import styles from './Card.module.css'
 
-const Card = ({ img, title, price, likes, id }) => {
+const Card = ({
+  img,
+  title,
+  price,
+  likes,
+  id,
+  variant,
+  liked,
+  like,
+  unlike,
+  currentProduct,
+}) => {
   const [show, setShow] = useState(false)
   const showActions = () => {
     setShow((prev) => !prev)
   }
   return (
     <div id={id} className={styles.card}>
-      <img className={styles.image} src={img} alt='error' />
+      <img
+        onClick={currentProduct}
+        className={styles.image}
+        src={img}
+        alt='error'
+      />
       <h2 className={styles.title}>{title}</h2>
-      <p className={styles.price}>{price} $</p>
+      <p className={styles.price}>{price.toFixed()} $</p>
       <div className={styles.actionsBlock}>
         <div className={styles.likeBlock}>
-          <img className={styles.likeIcon} src={likeIcon} alt='error' />
+          <img
+            onClick={liked ? unlike : like}
+            className={styles.likeIcon}
+            src={liked ? likeIcon : likeIconGray}
+            alt='error'
+          />
           <p className={styles.likeCount}>{likes}</p>
         </div>
-        <img
-          onClick={showActions}
-          className={styles.actionsIcon}
-          src={actionsIcon}
-          alt='error'
-        />
+        {variant === 'my' && (
+          <img
+            onClick={showActions}
+            className={styles.actionsIcon}
+            src={actionsIcon}
+            alt='error'
+          />
+        )}
       </div>
       {show && (
         <>

@@ -1,5 +1,5 @@
 .container{
- margin: 24px 42px 24px 42px;
+ margin: 24px 42px 0px 42px;
  display: flex;
  flex-direction: column;
  gap: 44px;
@@ -10,4 +10,31 @@
  justify-content: center;
  align-items: center;
  gap: 17.7px;
+}
+.unlikeBlock{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 24px;
+}
+.likeImg{
+ pointer-events: none;
+ user-select: none;
+}
+.unlikeText{
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #292929;
+}
+.cancell{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    color: #494949;    
+    user-select: none;
+    cursor: pointer;
 }

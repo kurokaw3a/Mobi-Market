@@ -1,0 +1,144 @@
+.loader{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.closeBlock{
+    width: 525px;
+    display: flex;
+    justify-content: end;
+}
+.closeIcon{
+    width: 12px;
+    height: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.img{
+    width: 532px;
+    height: 320px;
+    border-radius: 24px;
+    user-select: none;
+    pointer-events: none;
+}
+.radios{
+    position: absolute;
+    top: 0px;
+    width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 320px;
+    gap: 2px;
+}
+.radio{
+    appearance: none;
+    width: 10px;
+    height: 5px;
+    background: rgb(108, 108, 108);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.radioCurrent{
+    appearance: none;
+    width: 20px;
+    height: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    &:checked{
+    background: rgb(255, 255, 255);
+    }
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.price{
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5458EA;
+}
+.number{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #494949;    
+}
+.likeBlock{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.likeIcon{
+    width: 20px;
+    user-select: none;
+    pointer-events: none;
+}
+.likeText{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: right;
+    color: #C0C0C0;    
+}
+.feature{
+    overflow: auto;
+    max-height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &::-webkit-scrollbar{
+        background: rgba(211, 211, 211, 0.516);
+        border-radius: 10px;
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb{
+     background: rgb(79, 79, 79);
+     border-radius: 10px;
+    }
+}
+.name{
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #494949;    
+}
+.description{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #C0C0C0;    
+}
+.descriptionText{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #494949;
+}
+.short{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.full{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
