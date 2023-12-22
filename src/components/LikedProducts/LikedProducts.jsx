@@ -1,7 +1,5 @@
 const LikedProducts = () => {
-    return (
-        <div/>            
-    );
-};
+  return <div />
+}
 
-export default LikedProducts;
+export default LikedProducts
