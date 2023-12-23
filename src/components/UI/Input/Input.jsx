@@ -46,12 +46,15 @@ const Input = ({
               required
               type={show ? 'text' : type}
               placeholder={
-                placeholder || (variant === 'verification' && '0000')
+                placeholder ||
+                (variant === 'verification' && '0000') ||
+                placeholder
               }
               maxLength={
                 maxLength ||
                 (type === 'password' && 20) ||
-                (variant === 'verification' && 4)
+                (variant === 'verification' && 4) ||
+                maxLength
               }
               onChange={onChange}
               value={value}

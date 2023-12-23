@@ -13,7 +13,9 @@ const App = () => {
     }, 100000)
   }
   useEffect(() => {
-    dispatch(postRefreshToken({ refresh: login?.refresh }))
+    if (login) {
+      dispatch(postRefreshToken({ refresh: login?.refresh }))
+    }
   }, [])
   return <Root />
 }

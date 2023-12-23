@@ -81,15 +81,18 @@ const Profile = () => {
     profile?.username === user?.username &&
     profile?.birth_date === user?.birth_date &&
     profile?.email === user?.email &&
-    file?.name === user?.photo
+    !file
   const updateProfile = () => {
+    setFile(null)
     const formData = new FormData()
     formData.append('first_name', profile?.first_name)
     formData.append('last_name', profile?.last_name)
     formData.append('username', profile?.username)
     formData.append('birth_date', profile?.birth_date)
     formData.append('email', profile?.email)
-    formData.append('photo', file)
+    if (file) {
+      formData.append('photo', file)
+    }
     formData.append('phone', profile?.phone)
     dispatch(putUserProfile({ body: formData }))
   }

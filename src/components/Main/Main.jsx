@@ -95,6 +95,7 @@ const Main = () => {
           <div className={styles.main}>
             {products?.map((el) => (
               <Card
+                key={el.id}
                 img={el.images[0]?.image}
                 title={el.name}
                 price={Number(el.price)}
@@ -129,9 +130,9 @@ const Main = () => {
       )}
       {currentProductModal && (
         <CurrentProduct
+          key={currentProduct?.id}
           onClose={hideCurrentProductModal}
           status={getCurrentProductStatus}
-          id={currentProduct?.id}
           images={currentProduct?.images}
           name={currentProduct?.name}
           price={Number(currentProduct?.price)}

@@ -6,7 +6,7 @@ import logoutIcon from '../../../assets/sidebarIcons/logoutIcon.svg'
 import productsIcon from '../../../assets/sidebarIcons/productsIcon.svg'
 import styles from './Sidebar.module.css'
 
-const Sidebar = ({ logout, name, email, avatar }) => {
+const Sidebar = ({ logout, name, email, avatar, disabled }) => {
   const navigate = useNavigate()
   const navToProfile = () => {
     navigate('/profile')
@@ -26,8 +26,11 @@ const Sidebar = ({ logout, name, email, avatar }) => {
           </div>
         </div>
         <div className={styles.navigation}>
-          <NavLink to='/liked-products' className={styles.navText}>
-            <div className={styles.nav}>
+          <NavLink
+            to={disabled && '/liked-products'}
+            className={styles.navText}
+          >
+            <div className={disabled ? styles.nav : styles.navDisabled}>
               <div className={styles.navLeft}>
                 <img className={styles.navIcon} src={likeIcon} alt='error' />
                 <h3 className={styles.navText}>Понравившиеся</h3>
@@ -35,8 +38,8 @@ const Sidebar = ({ logout, name, email, avatar }) => {
               <img src={arrowIcon} alt='error' />
             </div>
           </NavLink>
-          <NavLink to='/my-products' className={styles.navText}>
-            <div className={styles.nav}>
+          <NavLink to={disabled && '/my-products'} className={styles.navText}>
+            <div className={disabled ? styles.nav : styles.navDisabled}>
               <div className={styles.navLeft}>
                 <img
                   className={styles.navIcon}
