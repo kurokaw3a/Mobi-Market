@@ -6,6 +6,8 @@
 .marketIcon{
     width: 196px;
     height: 46px;
+    user-select: none;
+    pointer-events: none;
 }
 .rightBlock{
  display: flex;

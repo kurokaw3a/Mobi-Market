@@ -40,14 +40,19 @@ const CurrentProduct = ({
             {images?.map(
               (el, i) =>
                 i === index && (
-                  <img className={styles.img} src={el.image} alt='error' />
+                  <img
+                    key={el}
+                    className={styles.img}
+                    src={el.image}
+                    alt='error'
+                  />
                 )
             )}
             {images?.length > 1 && (
               <div className={styles.radios}>
                 {images.map((el, i) => (
                   <input
-                    id={el.id}
+                    key={el.id}
                     onClick={() => nexPhoto(i)}
                     type='radio'
                     checked={i === index}

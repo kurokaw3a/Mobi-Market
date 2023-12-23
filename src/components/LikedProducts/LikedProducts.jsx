@@ -67,7 +67,7 @@ const LikedProducts = () => {
           <div className={styles.products}>
             <div className={styles.products}>
               {likedProducts?.map((el) => (
-                <div>
+                <div key={el.id}>
                   <Card
                     img={el.images[0]?.image}
                     title={el.name}
@@ -88,6 +88,7 @@ const LikedProducts = () => {
       )}
       {currentProductModal && (
         <CurrentProduct
+          key={currentProduct?.id}
           onClose={hideCurrentProductModal}
           status={getCurrentProductStatus}
           id={currentProduct?.id}

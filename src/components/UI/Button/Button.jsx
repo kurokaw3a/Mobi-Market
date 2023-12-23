@@ -11,7 +11,7 @@ const Button = ({ children, disabled, variant, onClick }) => {
           (disabled && 'rgba(247, 247, 248, 1)'),
         cursor: disabled && 'default',
         color:
-          (disabled && variant === 'reset') ||
+          (disabled && variant === 'reset' && '#9CA4AB') ||
           (disabled && variant === 'actions' && '#9CA4AB'),
       }}
       className={

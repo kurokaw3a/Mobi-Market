@@ -25,6 +25,7 @@ const Footer = ({ pages, setPage, page }) => {
         </div>
         {pages?.map((el, i) => (
           <div
+            key={el}
             onClickCapture={() => currentPage(i + 1)}
             className={
               page === i + 1

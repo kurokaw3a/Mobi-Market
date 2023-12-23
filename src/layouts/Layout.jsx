@@ -29,9 +29,14 @@ const Layout = () => {
     navigate('/')
     window.location.reload()
   }
+  const disabled =
+    profile?.first_name !== '' &&
+    profile?.last_name !== '' &&
+    profile?.birth_date
   return (
     <div className={styles.container}>
       <Sidebar
+        disabled={disabled}
         logout={showLogoutModal}
         name={login?.username}
         email={login?.email}
