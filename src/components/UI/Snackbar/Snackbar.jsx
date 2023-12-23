@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import snackIcon from '../../../assets/snackbarIcons/snackIcon.svg'
 import styles from './Snackbar.module.css'
 
-const Snackbar = ({ children, variant }) => {
+const Snackbar = ({ children, variant, yes, no }) => {
   const [show, setShow] = useState(true)
   useEffect(() => {
-    setTimeout(() => {
-      setShow(false)
-    }, 3000)
+    if (variant !== 'clarification')
+      setTimeout(() => {
+        setShow(false)
+      }, 3000)
   }, [])
   return (
     show && (
@@ -28,8 +29,12 @@ const Snackbar = ({ children, variant }) => {
         {children}
         {variant === 'clarification' && (
           <div className={styles.clarificationText}>
-            <p className={styles.yes}>Да</p>
-            <p className={styles.no}>Нет</p>
+            <p onClick={yes} className={styles.yes}>
+              Да
+            </p>
+            <p onClick={no} className={styles.no}>
+              Нет
+            </p>
           </div>
         )}
       </div>

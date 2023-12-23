@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import Authorization from '../components/Authorization/Authorization'
+import LikedProducts from '../components/LikedProducts/LikedProducts'
 import Main from '../components/Main/Main'
 import Profile from '../components/Profile/Profile'
 import Layout from '../layouts/Layout'
@@ -14,6 +15,7 @@ const Root = () => {
       {login?.access && (
         <Route path='' element={<Layout />}>
           <Route path='/profile' element={<Profile />} />
+          <Route path='/liked-products' element={<LikedProducts />} />
         </Route>
       )}
     </Routes>

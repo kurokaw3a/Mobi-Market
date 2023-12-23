@@ -1,11 +1,8 @@
 /* eslint-disable no-self-compare */
 /* eslint-disable camelcase */
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  getUserProfile,
-  putUserProfile,
-} from '../../services/Authorization/AuthActions'
+import { putUserProfile } from '../../services/Authorization/AuthActions'
 import { AuthSlice } from '../../services/Authorization/AuthSlice'
 import Reset from '../Authorization/Reset'
 import Filepicker from '../UI/Avatar/Filepicker'
@@ -20,10 +17,8 @@ const Profile = () => {
   const { profile, profileStatus, phoneVerify } = useSelector(
     (state) => state.Auth
   )
-  useEffect(() => {
-    dispatch(getUserProfile())
-  }, [])
   const [file, setFile] = useState(null)
+  const [img, setImg] = useState(null)
   const [showNumberModal, setShowModal] = useState(false)
   const showNumberModalHandler = () => {
     setShowModal(true)
@@ -85,11 +80,19 @@ const Profile = () => {
     profile?.last_name === user?.last_name &&
     profile?.username === user?.username &&
     profile?.birth_date === user?.birth_date &&
-    profile?.email === user?.email
+    profile?.email === user?.email &&
+    file?.name === user?.photo
   const updateProfile = () => {
-    dispatch(putUserProfile({ body: profile }))
+    const formData = new FormData()
+    formData.append('first_name', profile?.first_name)
+    formData.append('last_name', profile?.last_name)
+    formData.append('username', profile?.username)
+    formData.append('birth_date', profile?.birth_date)
+    formData.append('email', profile?.email)
+    formData.append('photo', file)
+    formData.append('phone', profile?.phone)
+    dispatch(putUserProfile({ body: formData }))
   }
-  const photo = localStorage.getItem('photo')
   return (
     <>
       {profileStatus === 'pending' ? (
@@ -98,7 +101,12 @@ const Profile = () => {
         </div>
       ) : (
         <div className={styles.profile}>
-          <Filepicker file={file || photo} setFile={setFile} variant='avatar' />
+          <Filepicker
+            file={img || profile?.photo}
+            setFile={setImg}
+            setFormData={setFile}
+            variant='avatar'
+          />
           <div className={styles.tools}>
             <div className={styles.input}>
               <Input

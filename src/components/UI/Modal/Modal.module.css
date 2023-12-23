@@ -5,7 +5,8 @@
     width: 100%;
     height: 100vh;
     z-index: 1;
-    background-color: #1313133a;
+    background-color: #0000007a;
+    animation: showBackdrop 0.5s ease;
 }
 .modalContent{
     position: fixed;
@@ -54,6 +55,14 @@
     }
     to{
         top: 10vh;
+        opacity: 1;
+    }    
+}
+@keyframes showBackdrop {
+    from{
+        opacity: 0;
+    }
+    to{
         opacity: 1;
     }    
 }
