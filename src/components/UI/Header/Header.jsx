@@ -5,13 +5,22 @@ import profileIcon from '../../../assets/headerIcons/profileIcon.svg'
 import Button from '../Button/Button'
 import styles from './Header.module.css'
 
-const Header = ({ variant, avatar, location, username, email }) => {
+const Header = ({
+  variant,
+  avatar,
+  location,
+  username,
+  email,
+  placeAnnouncement,
+}) => {
   return variant !== 'navigation' ? (
     <header>
       <nav className={styles.nav}>
         <img className={styles.marketIcon} src={marketIcon} alt='error' />
         <div className={styles.rightBlock}>
-          <Button variant='announcement'>Подать объявление</Button>
+          <Button onClick={placeAnnouncement} variant='announcement'>
+            Подать объявление
+          </Button>
           <div className={styles.profile}>
             <div>
               <h2 className={styles.userName}>{username}</h2>
@@ -20,7 +29,7 @@ const Header = ({ variant, avatar, location, username, email }) => {
             <NavLink to='/profile'>
               <img
                 className={styles.profileIcon}
-                src={profileIcon || avatar}
+                src={avatar || profileIcon}
                 alt='error'
               />
             </NavLink>

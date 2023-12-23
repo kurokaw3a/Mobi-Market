@@ -134,12 +134,13 @@ export const AuthSlice = createSlice({
         state.profileStatus = 'success'
         state.login = {
           ...state.login,
-          first_name: action.payload.profile?.first_name,
-          last_name: action.payload.profile?.last_name,
-          username: action.payload.profile?.username,
-          birth_date: action.payload.profile?.birth_date,
-          email: action.payload.profile?.email,
-          phone: action.payload.profile?.phone,
+          first_name: action.payload.profile?.get('first_name'),
+          last_name: action.payload.profile?.get('last_name'),
+          username: action.payload.profile?.get('username'),
+          birth_date: action.payload.profile?.get('birth_date'),
+          email: action.payload.profile?.get('email'),
+          phone: action.payload.profile?.get('phone'),
+          photo: action.payload?.profile?.get('photo')?.name,
         }
         localStorage.setItem('login', JSON.stringify(state.login))
       })

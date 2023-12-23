@@ -1,15 +1,20 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import logoutIcon from '../assets/sidebarIcons/logout 01.svg'
 import Button from '../components/UI/Button/Button'
 import Header from '../components/UI/Header/Header'
 import { Modal } from '../components/UI/Modal/Modal'
 import Sidebar from '../components/UI/Sidebar/Sidebar'
+import { getUserProfile } from '../services/Authorization/AuthActions'
 import styles from './Layout.module.css'
 
 const Layout = () => {
-  const { login } = useSelector((state) => state.Auth)
+  const { login, profile } = useSelector((state) => state.Auth)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getUserProfile())
+  }, [])
   const location = useLocation().pathname.slice(1)
   const [logoutModal, setLogoutModal] = useState(false)
   const showLogoutModal = () => {
@@ -30,11 +35,15 @@ const Layout = () => {
         logout={showLogoutModal}
         name={login?.username}
         email={login?.email}
+        avatar={profile?.photo}
       />
       <div className={styles.left}>
         <Header
           variant='navigation'
-          location={location === 'profile' && 'Профиль'}
+          location={
+            (location === 'profile' && 'Профиль') ||
+            (location === 'liked-products' && 'Понравившиеся')
+          }
         />
         <Outlet />
       </div>

@@ -39,3 +39,29 @@ export function ApiFetch(props) {
   })
   return promise
 }
+export async function ApiFile(parameter) {
+  const token = store.getState()
+  const requestOptions = {
+    method: parameter.method || 'POST',
+    headers: {
+      Authorization: `Bearer ${token.Auth.login.access}`,
+    },
+    body: parameter.body,
+  }
+  const promise = new Promise((resolve, reject) => {
+    fetch(initialUrl + parameter.url, requestOptions)
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw new Error(response.message)
+      })
+      .then((data) => {
+        resolve(data)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+  return promise
+}

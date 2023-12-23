@@ -19,6 +19,7 @@
     right: 400px;
     top: 24px;
     animation: show 0.5s ease;
+    z-index: 5;
 }
 .successSnackbar{
     width: 320px;
@@ -38,9 +39,10 @@
     gap: 6px;
     user-select: none;
     position: fixed;
-    right: 400px;
+    right: 650px;
     top: 24px;
     animation: show 0.5s ease;
+    z-index: 5;
 }
 .clarification{
     font-family: Inter, sans-serif;
@@ -60,6 +62,7 @@
     position: fixed;
     right: 44px;
     top: 44px;
+    z-index: 5;
     animation: showRight 0.5s ease;
 }
 .clarificationText{

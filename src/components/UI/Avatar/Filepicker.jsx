@@ -4,31 +4,43 @@ import trashIcon from '../../../assets/filepickerIcons/trash.svg'
 import avatarIcon from '../../../assets/headerIcons/profileIcon.svg'
 import styles from './Filepicker.module.css'
 
-const Filepicker = ({ variant, file, setFile, onDelete }) => {
+const Filepicker = ({
+  variant,
+  file,
+  setFile,
+  onDelete,
+  setFiles,
+  files,
+  setFormData,
+}) => {
   const fileRef = useRef(null)
 
   const selectFile = (event) => {
-    const fileUrl = URL.createObjectURL(event.target.files[0])
-    setFile(fileUrl)
-    if (variant === 'avatar') {
-      localStorage.setItem('photo', fileUrl)
+    if (event.target.files[0]) {
+      const fileUrl = URL.createObjectURL(event.target.files[0])
+      setFile(fileUrl)
+      if (setFormData) {
+        setFormData(event.target.files[0])
+      }
     }
   }
-
+  const selectFiles = (event) => {
+    const fileUrl = URL.createObjectURL(event.target.files[0])
+    setFiles(fileUrl, event.target.files[0])
+  }
   return (
-    <div>
-      {variant === 'product' && file ? (
-        <div>
+    <div className={styles.container}>
+      {variant === 'product' && files ? (
+        <div
+          className={styles.productImage}
+          style={{
+            backgroundImage: `url(${files})`,
+          }}
+        >
           <img
             onClick={onDelete}
             className={styles.trashIcon}
             src={trashIcon}
-            alt='error'
-          />
-          <img
-            onClick={() => fileRef.current.click()}
-            className={styles.product}
-            src={file}
             alt='error'
           />
         </div>
@@ -64,7 +76,7 @@ const Filepicker = ({ variant, file, setFile, onDelete }) => {
         </div>
       )}
       <input
-        onChange={selectFile}
+        onChange={variant === 'product' ? selectFiles : selectFile}
         className={styles.fileInput}
         type='file'
         ref={fileRef}

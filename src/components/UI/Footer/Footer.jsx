@@ -23,14 +23,16 @@ const Footer = ({ pages, setPage, page }) => {
             <img className={styles.arrowIconBack} src={arrowIcon} alt='error' />
           )}
         </div>
-        {pages?.map((el) => (
+        {pages?.map((el, i) => (
           <div
-            onClickCapture={() => currentPage(el)}
+            onClickCapture={() => currentPage(i + 1)}
             className={
-              page === el ? styles.pageNumberActive : styles.pageNumberDisabled
+              page === i + 1
+                ? styles.pageNumberActive
+                : styles.pageNumberDisabled
             }
           >
-            {el}
+            {i + 1}
           </div>
         ))}
         <div onClickCapture={nextPage} className={styles.navTools}>

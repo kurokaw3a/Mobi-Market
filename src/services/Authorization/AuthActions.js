@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ApiFetch } from '../../api/ApiFetch'
+import { ApiFetch, ApiFile } from '../../api/ApiFetch'
 
 export const postRegisterUser = createAsyncThunk(
   'post/register',
@@ -85,13 +85,14 @@ export const getUserProfile = createAsyncThunk(
 )
 export const putUserProfile = createAsyncThunk(
   'put/profile',
-  async (props, { rejectWithValue }) => {
+  async (props, { rejectWithValue, dispatch }) => {
     try {
-      await ApiFetch({
+      await ApiFile({
         url: 'users/profile/update/',
         method: 'PUT',
         body: props.body,
       })
+      dispatch(getUserProfile())
       return { profile: props.body }
     } catch (error) {
       return rejectWithValue(error.message)
