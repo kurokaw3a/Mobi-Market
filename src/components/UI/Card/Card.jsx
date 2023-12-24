@@ -17,6 +17,8 @@ const Card = ({
   like,
   unlike,
   currentProduct,
+  onEdit,
+  onDelete,
 }) => {
   const [show, setShow] = useState(false)
   const showActions = () => {
@@ -24,14 +26,16 @@ const Card = ({
   }
   return (
     <div id={id} className={styles.card}>
-      <img
-        onClick={currentProduct}
-        className={styles.image}
-        src={img}
-        alt='error'
-      />
-      <h2 className={styles.title}>{title}</h2>
-      <p className={styles.price}>{price.toFixed()} $</p>
+      <div className={styles.productInfo}>
+        <img
+          onClick={currentProduct}
+          className={styles.image}
+          src={img}
+          alt='error'
+        />
+        <h2 className={styles.title}>{title}</h2>
+        <p className={styles.price}>{price.toFixed()} $</p>
+      </div>
       <div className={styles.actionsBlock}>
         <div className={styles.likeBlock}>
           <img
@@ -55,12 +59,12 @@ const Card = ({
         <>
           <div onClickCapture={showActions} className={styles.backdrop} />
           <div className={styles.actions}>
-            <div className={styles.action}>
+            <div onClickCapture={onEdit} className={styles.action}>
               <img className={styles.actionIcon} src={editIcon} alt='error' />
               <p className={styles.actionText}>Изменить</p>
             </div>
             <hr className={styles.actionLine} />
-            <div className={styles.action}>
+            <div onClickCapture={onDelete} className={styles.action}>
               <img className={styles.actionIcon} src={deleteIcon} alt='error' />
               <p className={styles.actionText}>Удалить</p>
             </div>

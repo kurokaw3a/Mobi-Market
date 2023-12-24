@@ -1,0 +1,47 @@
+.container{
+    width: 650px;
+    display: flex;
+    justify-content: center;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+}
+.products{
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.unlikeBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+   }
+   .likeImg{
+    pointer-events: none;
+    user-select: none;
+   }
+   .unlikeText{
+       font-family: Inter;
+       font-size: 18px;
+       font-weight: 500;
+       letter-spacing: 0em;
+       text-align: center;
+       color: #292929;
+   }
+   .cancell{
+       font-family: Inter;
+       font-size: 16px;
+       font-weight: 700;
+       letter-spacing: 0em;
+       color: #494949;    
+       user-select: none;
+       cursor: pointer;
+   }
