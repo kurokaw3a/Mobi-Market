@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import lockIcon from '../../assets/authIcons/lockIcon.svg'
 import marketCover from '../../assets/marketCover.svg'
 import marketIcon from '../../assets/marketIcon.svg'
@@ -25,6 +25,14 @@ const Authorization = ({ variant }) => {
     userPassword: '',
     userEmail: '',
   })
+  const location = useLocation()
+  useEffect(() => {
+    setInput({
+      userName: '',
+      userPassword: '',
+      userEmail: '',
+    })
+  }, [location.pathname])
   const nameHandler = (event) => {
     setInput({ ...input, userName: event.target.value })
     dispatch(AuthSlice.actions.reset())

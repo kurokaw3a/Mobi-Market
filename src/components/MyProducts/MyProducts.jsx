@@ -1,22 +1,24 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import trashImg from '../../assets/trash.svg'
 import {
+  deleteProduct,
   getCurrentProduct,
   getMyProducts,
   likeProduct,
   unlikeProduct,
 } from '../../services/Market/MarketActions'
 import { MarketSlice } from '../../services/Market/MarketSlice'
-import CurrentProduct from '../Main/CurrentProduct'
 import Button from '../UI/Button/Button'
 import Card from '../UI/Card/Card'
 import Footer from '../UI/Footer/Footer'
 import Loader from '../UI/Lodaer/Loader'
 import { Modal } from '../UI/Modal/Modal'
 import NoContent from '../UI/NoContent'
+import Snackbar from '../UI/Snackbar/Snackbar'
+import CurrentMyProduct from './CurrentMyProduct'
+import EditProduct from './EditProduct'
 import styles from './MyProducts.module.css'
 
 const MyProducts = () => {
@@ -28,6 +30,8 @@ const MyProducts = () => {
     likedStatus,
     currentProduct,
     getCurrentProductStatus,
+    deleteProductStatus,
+    putProductStatus,
   } = useSelector((state) => state.Market)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -49,27 +53,52 @@ const MyProducts = () => {
   const like = (id) => {
     dispatch(likeProduct({ id, page }))
   }
-  const [UnlikeModal, setUnlikeModal] = useState(false)
+  const unlike = (id) => {
+    dispatch(unlikeProduct({ id }))
+    dispatch(getMyProducts({ page }))
+  }
+  const [editModal, setEditModal] = useState(false)
   const [productId, setProductId] = useState()
-  const showUnlikeModalHandler = (id) => {
-    setUnlikeModal(true)
+  const showEditModal = (id) => {
+    setCurrentProductModal(false)
+    setEditModal(true)
+    setProductId(id)
+    dispatch(MarketSlice.actions.reset())
+    dispatch(getCurrentProduct({ id }))
+  }
+  const hideEditModal = () => {
+    setEditModal(false)
+    setProductId(null)
+    dispatch(MarketSlice.actions.resetCurrentProduct())
+  }
+  const [deleteModal, setDeleteModal] = useState(false)
+  const showDeleteModal = (id) => {
+    setCurrentProductModal(false)
+    setDeleteModal(true)
     setProductId(id)
   }
-  const hideUnlikeModalHandler = () => {
-    setUnlikeModal(false)
+  const hideDeleteModal = () => {
+    setDeleteModal(false)
+    setProductId(null)
   }
-  const unlike = () => {
-    dispatch(unlikeProduct({ id: productId }))
+  const deleteProductHandler = () => {
+    dispatch(deleteProduct({ id: productId }))
+    hideDeleteModal()
+  }
+  useEffect(() => {
     dispatch(getMyProducts({ page }))
-    hideUnlikeModalHandler()
-  }
+  }, [deleteProductStatus])
+  useEffect(() => {
+    setEditModal(false)
+    dispatch(MarketSlice.actions.resetCurrentProduct())
+  }, [putProductStatus === 'success'])
   return (
     <div className={styles.container}>
       {getMyProductsStatus === 'pending' && !likedStatus ? (
         <Loader />
       ) : myProducts?.length >= 1 ? (
         <div className={styles.body}>
-          <div className={styles.products}>
+          <div className={styles.productsBlock}>
             <div className={styles.products}>
               {myProducts?.map((el) => (
                 <div key={el.id}>
@@ -80,9 +109,11 @@ const MyProducts = () => {
                     price={Number(el.price)}
                     likes={el.like_count}
                     liked={el.liked_by_current_user}
-                    unlike={() => showUnlikeModalHandler(el.id)}
+                    unlike={() => unlike(el.id)}
                     like={() => like(el.id)}
                     currentProduct={() => showCurrentProductModal(el.id)}
+                    onEdit={() => showEditModal(el.id)}
+                    onDelete={() => showDeleteModal(el.id)}
                   />
                 </div>
               ))}
@@ -94,7 +125,7 @@ const MyProducts = () => {
         <NoContent />
       )}
       {currentProductModal && (
-        <CurrentProduct
+        <CurrentMyProduct
           key={currentProduct?.id}
           onClose={hideCurrentProductModal}
           status={getCurrentProductStatus}
@@ -109,23 +140,32 @@ const MyProducts = () => {
           fullDescription={currentProduct?.full_description}
           index={index}
           nexPhoto={nextPhoto}
+          onEdit={() => showEditModal(currentProduct.id)}
+          onDelete={() => showDeleteModal(currentProduct.id)}
         />
       )}
-      {UnlikeModal && (
-        <Modal onClose={hideUnlikeModalHandler}>
+      {editModal && <EditProduct onClose={hideEditModal} page={page} />}
+      {deleteModal && (
+        <Modal onClose={hideDeleteModal}>
           <div className={styles.unlikeBlock}>
             <img className={styles.likeImg} src={trashImg} alt='error' />
             <p className={styles.unlikeText}>
-              Вы действительно хотите удалить из понравившихся
+              Вы действительно хотите удалить данный товар?
             </p>
-            <Button variant='actions' onClick={unlike}>
+            <Button variant='actions' onClick={deleteProductHandler}>
               Удалить
             </Button>
-            <h2 onClick={hideUnlikeModalHandler} className={styles.cancell}>
+            <h2 onClick={hideDeleteModal} className={styles.cancell}>
               Отмена
             </h2>
           </div>
         </Modal>
+      )}
+      {putProductStatus === 'success' && (
+        <Snackbar variant='success'>Товар изменён</Snackbar>
+      )}
+      {putProductStatus === 'error' && (
+        <Snackbar variant='error'>Ошибка при редактировании товара</Snackbar>
       )}
     </div>
   )

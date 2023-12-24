@@ -1,5 +1,3 @@
-/* eslint-disable no-self-compare */
-/* eslint-disable camelcase */
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { putUserProfile } from '../../services/Authorization/AuthActions'

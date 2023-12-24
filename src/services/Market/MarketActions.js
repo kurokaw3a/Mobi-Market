@@ -73,6 +73,31 @@ export const postProduct = createAsyncThunk(
     }
   }
 )
+export const putProduct = createAsyncThunk(
+  'put/product',
+  async (props, { rejectWithValue, dispatch }) => {
+    try {
+      await ApiFile({
+        url: `products/${props.id}/`,
+        method: 'PUT',
+        body: props.body,
+      })
+      dispatch(getMyProducts({ page: props.page }))
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+export const deleteProduct = createAsyncThunk(
+  'delete/product',
+  async (props, { rejectWithValue }) => {
+    try {
+      await ApiFetch({ url: `products/${props.id}/`, method: 'DELETE' })
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
 
 export const getLikedProducts = createAsyncThunk(
   'get/likedProducts',

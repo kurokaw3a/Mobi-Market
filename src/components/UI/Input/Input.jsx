@@ -58,6 +58,7 @@ const Input = ({
               }
               onChange={onChange}
               value={value}
+              disabled={disabled}
             />
           )}
         {label && (
@@ -113,6 +114,7 @@ const Input = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          disabled={disabled}
         />
       )}
     </div>

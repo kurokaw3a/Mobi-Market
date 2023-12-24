@@ -1,0 +1,104 @@
+.loader{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.closeBlock{
+    width: 525px;
+    display: flex;
+    justify-content: end;
+}
+.closeIcon{
+    width: 12px;
+    height: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.img{
+    width: 532px;
+    height: 320px;
+    border-radius: 24px;
+    user-select: none;
+    pointer-events: none;
+}
+.radios{
+    position: absolute;
+    top: 0px;
+    width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 320px;
+    gap: 2px;
+}
+.radio{
+    appearance: none;
+    width: 10px;
+    height: 5px;
+    background: rgb(108, 108, 108);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.radioCurrent{
+    appearance: none;
+    width: 20px;
+    height: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    &:checked{
+    background: rgb(255, 255, 255);
+    }
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 200px;
+    overflow-x: auto;
+    &::-webkit-scrollbar{
+        background: rgba(211, 211, 211, 0.516);
+        border-radius: 10px;
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb{
+     background: rgb(79, 79, 79);
+     border-radius: 10px;
+    }
+}
+.input{
+    background: #F7F6F9;
+    border-radius: 12px;
+}
+.inputFull{
+    background: #F7F6F9;
+    border-radius: 12px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: #494949;
+    padding: 10px 16px 10px 16px;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.deleteButton{
+    width: 260px;
+    padding: 10px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    color: #F34545; 
+    user-select: none;
+    cursor: pointer;   
+}
