@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.close{
+    width: 530px;
+    display: flex;
+    justify-content: end;
+    user-select: none;
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+.closeIcon{
+    width: 10.49px;
+    height: 10.49px;
+    cursor: pointer;
+}
+.filePicker{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow:auto;
+ &::-webkit-scrollbar{
+    height: 5px;
+    background: rgb(230, 230, 230);
+    border-radius: 10px;
+ }
+ &::-webkit-scrollbar-thumb{
+    background: rgb(74, 74, 74);
+    border-radius: 10px;
+}
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input{
+    background: #F7F6F9;
+    border-radius: 12px;
+}
+.form{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 24px;
+ margin-bottom: 20px;
+}

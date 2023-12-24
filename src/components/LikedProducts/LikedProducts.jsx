@@ -64,7 +64,7 @@ const LikedProducts = () => {
         <Loader />
       ) : likedProducts?.length >= 1 ? (
         <div className={styles.body}>
-          <div className={styles.products}>
+          <div className={styles.productsBlock}>
             <div className={styles.products}>
               {likedProducts?.map((el) => (
                 <div key={el.id}>

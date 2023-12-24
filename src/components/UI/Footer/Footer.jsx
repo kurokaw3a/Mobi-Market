@@ -1,25 +1,19 @@
-import { useDispatch } from 'react-redux'
 import arrowIcon from '../../../assets/footerIcons/arrowIcon.svg'
-import { MarketSlice } from '../../../services/Market/MarketSlice'
 import styles from './Footer.module.css'
 
 const Footer = ({ pages, setPage, page }) => {
-  const dispatch = useDispatch()
   const nextPage = () => {
     if (page >= 1 && page < pages.length) {
       setPage((prev) => prev + 1)
-      dispatch(MarketSlice.actions.reset())
     }
   }
   const prevPage = () => {
     if (page > 1) {
       setPage((prev) => prev - 1)
-      dispatch(MarketSlice.actions.reset())
     }
   }
   const currentPage = (page) => {
     setPage(page)
-    dispatch(MarketSlice.actions.reset())
   }
   return (
     <footer className={styles.footer}>

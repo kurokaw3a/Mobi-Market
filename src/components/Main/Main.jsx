@@ -1,4 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable no-nested-ternary */
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +9,7 @@ import {
   likeProduct,
   unlikeProduct,
 } from '../../services/Market/MarketActions'
+import { MarketSlice } from '../../services/Market/MarketSlice'
 import Button from '../UI/Button/Button'
 import Card from '../UI/Card/Card'
 import Footer from '../UI/Footer/Footer'
@@ -74,10 +74,14 @@ const Main = () => {
   const [announcementModal, setAnnouncementModal] = useState(false)
   const showAnnouncementModal = () => {
     setAnnouncementModal(true)
+    dispatch(MarketSlice.actions.reset())
   }
   const hideAnnouncementModal = () => {
     setAnnouncementModal(false)
   }
+  useEffect(() => {
+    setAnnouncementModal(false)
+  }, [postProductStatus === 'success'])
   return (
     <div className={styles.container}>
       <Header

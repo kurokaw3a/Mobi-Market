@@ -7,6 +7,7 @@ import Header from '../components/UI/Header/Header'
 import { Modal } from '../components/UI/Modal/Modal'
 import Sidebar from '../components/UI/Sidebar/Sidebar'
 import { getUserProfile } from '../services/Authorization/AuthActions'
+import { MarketSlice } from '../services/Market/MarketSlice'
 import styles from './Layout.module.css'
 
 const Layout = () => {
@@ -16,6 +17,9 @@ const Layout = () => {
     dispatch(getUserProfile())
   }, [])
   const location = useLocation().pathname.slice(1)
+  useEffect(() => {
+    dispatch(MarketSlice.actions.reset())
+  }, [location])
   const [logoutModal, setLogoutModal] = useState(false)
   const showLogoutModal = () => {
     setLogoutModal(true)

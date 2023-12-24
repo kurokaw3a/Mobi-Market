@@ -2,12 +2,14 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { createSlice } from '@reduxjs/toolkit'
 import {
+  deleteProduct,
   getCurrentProduct,
   getLikedProducts,
   getMyProducts,
   getProducts,
   likeProduct,
   postProduct,
+  putProduct,
   unlikeProduct,
 } from './MarketActions'
 
@@ -25,6 +27,8 @@ const initialState = {
   getMyProductsStatus: null,
   myProducts: [],
   countMyProducts: [],
+  putProductStatus: null,
+  deleteProductStatus: null,
 }
 export const MarketSlice = createSlice({
   name: 'Market',
@@ -35,6 +39,27 @@ export const MarketSlice = createSlice({
       state.getCurrentProductStatus = null
       state.postProductStatus = null
       state.likedStatus = null
+      state.getMyProductsStatus = null
+      state.putProductStatus = null
+      state.deleteProductStatus = null
+    },
+    priceHandler(state, action) {
+      state.currentProduct = action.payload
+    },
+    nameHandler(state, action) {
+      state.currentProduct = action.payload
+    },
+    shortDescriptionHandler(state, action) {
+      state.currentProduct = action.payload
+    },
+    fullDescriptionHandler(state, action) {
+      state.currentProduct = action.payload
+    },
+    imageHandler(state, action) {
+      state.currentProduct = action.payload
+    },
+    resetCurrentProduct(state) {
+      state.currentProduct = []
     },
   },
   extraReducers: (builder) => {
@@ -108,6 +133,24 @@ export const MarketSlice = createSlice({
       })
       .addCase(getMyProducts.rejected, (state) => {
         state.getMyProductsStatus = 'error'
+      })
+      .addCase(putProduct.pending, (state) => {
+        state.putProductStatus = 'pending'
+      })
+      .addCase(putProduct.fulfilled, (state) => {
+        state.putProductStatus = 'success'
+      })
+      .addCase(putProduct.rejected, (state) => {
+        state.putProductStatus = 'error'
+      })
+      .addCase(deleteProduct.pending, (state) => {
+        state.deleteProductStatus = 'pending'
+      })
+      .addCase(deleteProduct.fulfilled, (state) => {
+        state.deleteProductStatus = 'success'
+      })
+      .addCase(deleteProduct.rejected, (state) => {
+        state.deleteProductStatus = 'error'
       })
   },
 })
