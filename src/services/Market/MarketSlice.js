@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import {
   getCurrentProduct,
   getLikedProducts,
+  getMyProducts,
   getProducts,
   likeProduct,
   postProduct,
@@ -21,6 +22,9 @@ const initialState = {
   likedProducts: [],
   getLikedProductsStatus: null,
   countLikedProducts: [],
+  getMyProductsStatus: null,
+  myProducts: [],
+  countMyProducts: [],
 }
 export const MarketSlice = createSlice({
   name: 'Market',
@@ -93,6 +97,17 @@ export const MarketSlice = createSlice({
       })
       .addCase(getLikedProducts.rejected, (state) => {
         state.getLikedProductsStatus = 'error'
+      })
+      .addCase(getMyProducts.pending, (state) => {
+        state.getMyProductsStatus = 'pending'
+      })
+      .addCase(getMyProducts.fulfilled, (state, action) => {
+        state.getMyProductsStatus = 'success'
+        state.myProducts = action.payload.myProducts
+        state.countMyProducts = action.payload.count
+      })
+      .addCase(getMyProducts.rejected, (state) => {
+        state.getMyProductsStatus = 'error'
       })
   },
 })

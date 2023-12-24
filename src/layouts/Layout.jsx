@@ -47,7 +47,8 @@ const Layout = () => {
           variant='navigation'
           location={
             (location === 'profile' && 'Профиль') ||
-            (location === 'liked-products' && 'Понравившиеся')
+            (location === 'liked-products' && 'Понравившиеся') ||
+            (location === 'my-products' && 'Мои товары')
           }
         />
         <Outlet />

@@ -5,8 +5,13 @@
     box-shadow: 0px 2px 12px 0px #4949491A;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
     background: white;
+}
+.productInfo{
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
 }
 .image{
     width: 148px;
@@ -35,7 +40,7 @@
 .actionsBlock{
   display: flex;
   align-items: center;
-  gap: 68px;
+  justify-content: space-between;
 }
 .likeBlock{
  display: flex;

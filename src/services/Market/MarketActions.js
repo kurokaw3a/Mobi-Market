@@ -42,6 +42,7 @@ export const likeProduct = createAsyncThunk(
     try {
       await ApiFetch({ url: `products/like/${props.id}/`, method: 'POST' })
       dispatch(getProducts({ page: props.page }))
+      dispatch(getMyProducts({ page: props.page }))
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -87,6 +88,25 @@ export const getLikedProducts = createAsyncThunk(
         }
       }
       return { likedProducts: response?.results, count }
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+export const getMyProducts = createAsyncThunk(
+  'get/MyProducts',
+  async (props, { rejectWithValue }) => {
+    try {
+      const response = await ApiFetch({
+        url: `products/my-products/?page=${props.page}&limit=12`,
+      })
+      const count = []
+      for (let i = 0; i < response?.count; i++) {
+        if (i % 12 === 0) {
+          count.push(i)
+        }
+      }
+      return { myProducts: response?.results, count }
     } catch (error) {
       return rejectWithValue(error.message)
     }
