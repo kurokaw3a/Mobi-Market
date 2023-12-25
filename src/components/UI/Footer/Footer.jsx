@@ -1,19 +1,28 @@
 import arrowIcon from '../../../assets/footerIcons/arrowIcon.svg'
 import styles from './Footer.module.css'
 
-const Footer = ({ pages, setPage, page }) => {
+const Footer = ({ pages, setPage, page, reset }) => {
   const nextPage = () => {
     if (page >= 1 && page < pages.length) {
       setPage((prev) => prev + 1)
+    }
+    if (reset) {
+      reset()
     }
   }
   const prevPage = () => {
     if (page > 1) {
       setPage((prev) => prev - 1)
     }
+    if (reset) {
+      reset()
+    }
   }
   const currentPage = (page) => {
     setPage(page)
+    if (reset) {
+      reset()
+    }
   }
   return (
     <footer className={styles.footer}>

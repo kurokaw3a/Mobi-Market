@@ -82,6 +82,14 @@ const Main = () => {
   useEffect(() => {
     setAnnouncementModal(false)
   }, [postProductStatus === 'success'])
+  const resetStatus = () => {
+    dispatch(MarketSlice.actions.reset())
+  }
+  const disabled =
+    profile?.first_name !== '' &&
+    profile?.last_name !== '' &&
+    profile?.birth_date !== '' &&
+    profile?.phone !== ''
   return (
     <div className={styles.container}>
       <Header
@@ -108,6 +116,7 @@ const Main = () => {
                 like={() => like(el.id)}
                 unlike={() => showUnlikeModalHandler(el.id)}
                 currentProduct={() => showCurrentProductModal(el.id)}
+                disabled={disabled}
               />
             ))}
           </div>
@@ -115,7 +124,12 @@ const Main = () => {
           <NoContent />
         )}
       </div>
-      <Footer pages={countProducts} page={page} setPage={setPage} />
+      <Footer
+        pages={countProducts}
+        page={page}
+        setPage={setPage}
+        reset={resetStatus}
+      />
       {UnlikeModal && (
         <Modal onClose={hideUnlikeModalHandler}>
           <div className={styles.unlikeBlock}>

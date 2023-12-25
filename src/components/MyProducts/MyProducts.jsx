@@ -92,6 +92,9 @@ const MyProducts = () => {
     setEditModal(false)
     dispatch(MarketSlice.actions.resetCurrentProduct())
   }, [putProductStatus === 'success'])
+  const resetStatus = () => {
+    dispatch(MarketSlice.actions.reset())
+  }
   return (
     <div className={styles.container}>
       {getMyProductsStatus === 'pending' && !likedStatus ? (
@@ -119,7 +122,12 @@ const MyProducts = () => {
               ))}
             </div>
           </div>
-          <Footer pages={countMyProducts} page={page} setPage={setPage} />
+          <Footer
+            pages={countMyProducts}
+            page={page}
+            setPage={setPage}
+            reset={resetStatus}
+          />
         </div>
       ) : (
         <NoContent />

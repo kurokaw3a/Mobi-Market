@@ -8,6 +8,7 @@ import {
   getLikedProducts,
   unlikeProduct,
 } from '../../services/Market/MarketActions'
+import { MarketSlice } from '../../services/Market/MarketSlice'
 import CurrentProduct from '../Main/CurrentProduct'
 import Button from '../UI/Button/Button'
 import Card from '../UI/Card/Card'
@@ -58,6 +59,9 @@ const LikedProducts = () => {
     dispatch(getLikedProducts({ page }))
     hideUnlikeModalHandler()
   }
+  const resetStatus = () => {
+    dispatch(MarketSlice.actions.reset())
+  }
   return (
     <div className={styles.container}>
       {getLikedProductsStatus === 'pending' ? (
@@ -81,7 +85,12 @@ const LikedProducts = () => {
               ))}
             </div>
           </div>
-          <Footer pages={countLikedProducts} page={page} setPage={setPage} />
+          <Footer
+            pages={countLikedProducts}
+            page={page}
+            setPage={setPage}
+            reset={resetStatus}
+          />
         </div>
       ) : (
         <NoContent />
