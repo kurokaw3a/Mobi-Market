@@ -19,6 +19,7 @@ const Card = ({
   currentProduct,
   onEdit,
   onDelete,
+  disabled,
 }) => {
   const [show, setShow] = useState(false)
   const showActions = () => {
@@ -37,15 +38,17 @@ const Card = ({
         <p className={styles.price}>{price.toFixed()} $</p>
       </div>
       <div className={styles.actionsBlock}>
-        <div className={styles.likeBlock}>
-          <img
-            onClick={liked ? unlike : like}
-            className={styles.likeIcon}
-            src={liked ? likeIcon : likeIconGray}
-            alt='error'
-          />
-          <p className={styles.likeCount}>{likes}</p>
-        </div>
+        {disabled && (
+          <div className={styles.likeBlock}>
+            <img
+              onClick={liked ? unlike : like}
+              className={styles.likeIcon}
+              src={liked ? likeIcon : likeIconGray}
+              alt='error'
+            />
+            <p className={styles.likeCount}>{likes}</p>
+          </div>
+        )}
         {variant === 'my' && (
           <img
             onClick={showActions}
